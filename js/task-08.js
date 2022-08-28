@@ -24,33 +24,28 @@
 // методом reset.
 
 
-
-const form = document.querySelector(".form");
-
+// Викликаємо form.
+const form = document.querySelector(".login-form");
+// Обробка відправлення форми form.login - form повинна відбуватися відповідно 
+// до події submit.
 form.addEventListener("submit", handleSubmit);
 
 function handleSubmit(event) {
+// Під час відправлення форми сторінка не повинна перезавантажуватися.
   event.preventDefault();
+// Якщо користувач заповнив усі поля і відправив форму, збери значення полів в 
+// об'єкт, де ім'я поля буде ім'ям властивості, а значення поля - значенням 
+// властивості.Для доступу до елементів форми використовуй властивість elements.
   const {
-    elements: { login, password }
+    elements: { email, password }
   } = event.currentTarget;
-
-  if (login.value === "" || password.value === "") {
+// Якщо у формі є незаповнені поля, виводь alert з попередженням про те, що всі
+//  поля повинні бути заповнені.
+  if (email.value === "" || password.value === "") {
     return console.log("Please fill in all the fields!");
   }
-
-  console.log(`Login: ${login.value}, Password: ${password.value}`);
+// Виведи об'єкт із введеними даними в консоль 
+  console.log(`{Email: ${email.value}, Password: ${password.value}}`);
+  // і очисти значення полів форми методом reset.
   event.currentTarget.reset();
 }
-
-/* <form class="form" autocomplete="off">
-  <input type="text" name="login" placeholder="Login">
-  <input type="password" name="password" placeholder="Password">
-  <button class="btn" type="submit">Register</button>
-</form> */
-
-// Відправлення форми відбувається під час кліку по кнопці з атрибутом type = "submit" або натискання клавіші Enter,
-//     перебуваючи в будь - якому її текстовому полі.Подію submit можна застосувати для валідації(перевірки) форми
-//      перед відправленням, оскільки на об'єкті події існує багато корисних властивостей, пов'язаних з елементами
-// форми.Сабміт форми перезавантажує сторінку, тому не забувайте скасовувати дію за 
-// замовчуванням методом preventDefault().

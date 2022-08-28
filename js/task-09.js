@@ -17,3 +17,17 @@
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
+// Викликаємо body, button та span.
+const bodyBackground = document.querySelector(`body`);
+const spanColor = document.querySelector(`.color`);
+const button = document.querySelector(`.change-color`);
+
+const chengeBodyBackgroundColor = () => {
+  // змінює кольори фону елемента < body > через інлайн - стиль 
+  bodyBackground.style.backgroundColor = getRandomHexColor();
+  // і виводить значення кольору в span.color.
+  spanColor.textContent = getRandomHexColor();
+  // Для генерування випадкового кольору використовуй функцію getRandomHexColor.
+};
+// по кліку на button.change - color 
+button.addEventListener("click", chengeBodyBackgroundColor);

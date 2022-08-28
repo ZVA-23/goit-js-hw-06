@@ -6,3 +6,13 @@
 // <br />
 // <span id="text">Abracadabra!</span>
 
+
+// Викликаємо input і span.
+const imputElement = document.querySelector(`#font-size-control`);
+const textSpanElement = document.querySelector(`#text`);
+// Функція, яка змінює розмір тексту на .px в результаті перетягування повзунка.
+imputElement.addEventListener(`input`, () => {
+    const sizeInput = imputElement.value;
+    textSpanElement.style.fontSize = sizeInput + "px";
+}
+)
