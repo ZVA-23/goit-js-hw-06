@@ -5,11 +5,14 @@
 // <input type="text" id="name-input" placeholder="Please enter your name" />
 // <h1>Hello, <span id="name-output">Anonymous</span>!</h1>
 
-
 // Викликаємо input і span.
-const textInput = document.querySelector(`#name-input`);
-const output = document.querySelector(`#name-output`);
+const textInput = document.querySelector("#name-input");
+const output = document.querySelector("#name-output");
 // Підставляємо поточні значення в span#name - output.
-textInput.addEventListener(`input`, (event) => {
-  output.textContent = event.currentTarget.value;
+textInput.addEventListener("input", (event) => {
+  if (event.target.value === "") {
+    output.textContent = "Anonymous";
+  } else {
+    output.textContent = event.currentTarget.value;
+  }
 });

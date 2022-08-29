@@ -28,27 +28,14 @@
 // }
 
 // Викликаємо input.
-const textInput = document.querySelector(`#validation-input`);
+const textInput = document.querySelector("#validation-input");
 // Функція, яка перевіряє вміст інпуту,щодо правильної кількості
 // введених символів під час втрати фокусу на інпуті(подія blur).
-textInput.addEventListener(`blur`, () => {
-    if (Number(textInput.dataset.length) === textInput.value.length) {
-        textInput.classList.remove(`invalid`);
-        textInput.classList.add(`valid`);
-    } else {
-        textInput.classList.add(`invalid`);
-}
+textInput.addEventListener("blur", () => {
+  if (Number(textInput.dataset.length) === textInput.value.length) {
+    textInput.classList.remove("invalid");
+    textInput.classList.add("valid");
+  } else {
+    textInput.classList.add("invalid");
+  }
 });
-
-
-// const textInput = document.querySelector("#validation-input");
-
-// function inputValid() {
-//     if (Number(textInput.dataset.length) === textInput.value.length) {
-//         textInput.classList.remove("invalid");
-//         textInput.classList.add("valid");
-//     } else {
-//         textInput.classList.add("invalid");
-//     }
-// }
-// textInput.addEventListener("blur", inputValid);
