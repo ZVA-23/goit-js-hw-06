@@ -24,10 +24,10 @@
 // методом reset.
 
 // Викликаємо form.
-const form = document.querySelector(".login-form");
+const form = document.querySelector('.login-form');
 // Обробка відправлення форми form.login - form повинна відбуватися відповідно
 // до події submit.
-form.addEventListener("submit", handleSubmit);
+form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
   // Під час відправлення форми сторінка не повинна перезавантажуватися.
@@ -42,11 +42,12 @@ function handleSubmit(event) {
   };
   // Якщо у формі є незаповнені поля, виводь alert з попередженням про те, що всі
   //  поля повинні бути заповнені.
-  if (elements.email === "" || elements.password === "") {
+  if (elements.email === '' || elements.password === '') {
     alert(`Please fill in all the fields!`);
+  } else {
+    // Виведи об'єкт із введеними даними в консоль
+    console.log(elements);
+    // і очисти значення полів форми методом reset.
+    event.currentTarget.reset();
   }
-  // Виведи об'єкт із введеними даними в консоль
-  console.log(elements);
-  // і очисти значення полів форми методом reset.
-  event.currentTarget.reset();
 }
