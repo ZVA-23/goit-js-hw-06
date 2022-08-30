@@ -31,11 +31,17 @@
 const textInput = document.querySelector('#validation-input');
 // Функція, яка перевіряє вміст інпуту,щодо правильної кількості
 // введених символів під час втрати фокусу на інпуті(подія blur).
-textInput.addEventListener('blur', () => {
-  if (Number(textInput.dataset.length) === textInput.value.length) {
-    textInput.classList.remove('invalid');
-    textInput.classList.add('valid');
+textInput.addEventListener('blur', event => {
+  console.dir(event);
+  const {
+    dataset: { length },
+    value,
+    classList,
+  } = event.target;
+  if (Number(length) === value.length) {
+    classList.remove('invalid');
+    classList.add('valid');
   } else {
-    textInput.classList.add('invalid');
+    classList.add('invalid');
   }
 });
